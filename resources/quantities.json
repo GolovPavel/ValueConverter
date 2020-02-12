@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Масса",
+    "units": [
+      {
+        "name": "Килограммы",
+        "is_base_unit": "True",
+        "conversion_factor": 1
+      },
+      {
+        "name": "Граммы",
+        "is_base_unit": "False",
+        "conversion_factor": 1e-3
+      },
+      {
+        "name": "Тонны",
+        "is_base_unit": "False",
+        "conversion_factor": 1e3
+      }
+    ]
+  },
+  {
+    "name": "Длинна",
+    "units": [
+      {
+        "name": "Метры",
+        "is_base_unit": "True",
+        "conversion_factor": 1
+      },
+      {
+        "name": "Километры",
+        "is_base_unit": "False",
+        "conversion_factor": 1e-3
+      },
+      {
+        "name": "Метры",
+        "is_base_unit": "False",
+        "conversion_factor": 1
+      }
+    ]
+  }
+]

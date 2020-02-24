@@ -47,5 +47,5 @@ class Unit:
 
     @staticmethod
     def decode_from_json(json_obj):
-        return Unit(json_obj["name"], bool(json_obj["is_base_unit"]), json_obj["conversion_factor"],
+        return Unit(json_obj["name"], bool(json_obj["is_base_unit"]), float(json_obj["conversion_factor"]),
                     json_obj["conversion_operation"])

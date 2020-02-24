@@ -100,23 +100,30 @@ class ConverterFrame(tk.Frame):
         self.grid_rowconfigure(4, weight=1)
 
         self.main_label = tk.Label(self, font="Helvetica 30 bold")
-        self.main_label.grid(row=0, column=3, pady=10)
+        self.main_label.grid(row=0, columnspan=3, pady=40)
 
         self.first_unit_selector = ttk.Combobox(self, values=list(self.units.keys()), justify='center',
                                                 textvariable=self.selected_unit_one)
         self.first_unit_selector['state'] = 'readonly'
-        self.first_unit_selector.grid(row=1, column=2)
+        self.first_unit_selector.grid(row=1, column=0)
 
         self.second_unit_selector = ttk.Combobox(self, values=list(self.units.keys()), justify='center',
                                                  textvariable=self.selected_unit_two)
         self.second_unit_selector['state'] = 'readonly'
-        self.second_unit_selector.grid(row=1, column=4)
+        self.second_unit_selector.grid(row=1, column=2)
+
+        self.first_entry = tk.Entry(self, width=24)
+        self.first_entry.grid(row=2, column=0, pady=70)
+
+        self.second_entry = tk.Entry(self, width=24)
+        self.second_entry.grid(row=2, column=2, pady=70)
+
+        self.convert_button = tk.Button(self, text="Конвертировать", width=20, height=3, command=self.convert)
+        self.convert_button.grid(row=3, column=1)
 
         self.back_button = tk.Button(self, text="Назад", width=20, height=3,
                                      command=lambda: self.controller.show_frame(MainFrame.__name__))
-        self.back_button.grid(row=2, column=3)
-
-        # TODO Fix frame layout
+        self.back_button.grid(row=4, column=1)
 
     def render(self):
         selected_unit = self.controller.selected_quantity.get()
@@ -127,3 +134,28 @@ class ConverterFrame(tk.Frame):
 
         self.first_unit_selector["values"] = list(self.units.keys())
         self.second_unit_selector["values"] = list(self.units.keys())
+
+    def convert(self):
+        pass
+        # Здесь будет основная логика конвертации одной единицы измерения в другую.
+        # Все единицы измерения для выбранной физической величины храняться в словаре self.units,
+        # где ключ - название единицы измерения, а значение - объект класса Unit.
+        #
+        # Принцип конвертации:
+        # Берем из словаря self.units выбранные пользователем физические величины и кладем их в отдельные переменные.
+        # Далее берем из self.first_entry значение, которое нужно преобразовать во вторую величину.
+        #
+        # Далее исходную величину переводим в базовую. Тут возможно 2 исхода:
+        #     1. Операция преобразования - умножение. Тогда исходную величину умножаем на conversion_factor;
+        #     2. Операция преобразования - сложение. Тогда к исходной величине прибавляем conversion_factor.
+        # Предположим, что получение значение это a1.
+        #
+        # Далее нужно преобразовать базовую величину в ту, которую выбрал пользователель во втором combobox'e.
+        # Смотрим на операцию преобразования 2ой единицы измерения.
+        #     1. Если это *, то a1 делим на conversion_factor;
+        #     2. Если это +, то из а1 вычитаем conversion_factor.
+        # Получаем переменную a2, которая уже и есть преобразованное значение.
+        #
+        # На последнем этапе нужно просто записать переменную a2 во self.second_entry.
+        # Как это делается можешь почитать тут
+        # https://stackoverflow.com/questions/16373887/how-to-set-the-text-value-content-of-an-entry-widget-using-a-button-in-tkinter

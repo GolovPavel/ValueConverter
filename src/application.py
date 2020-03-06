@@ -117,6 +117,7 @@ class ConverterFrame(tk.Frame):
 
         self.second_entry = tk.Entry(self, width=24)
         self.second_entry.grid(row=2, column=2, pady=70)
+        self.second_entry.configure(state='readonly')
 
         self.convert_button = tk.Button(self, text="Конвертировать", width=20, height=3, command=self.convert)
         self.convert_button.grid(row=3, column=1)
@@ -126,6 +127,8 @@ class ConverterFrame(tk.Frame):
         self.back_button.grid(row=4, column=1)
 
     def render(self):
+        self.clear()
+
         selected_unit = self.controller.selected_quantity.get()
         self.main_label["text"] = "Выбрана величина: {}".format(selected_unit)
 
@@ -135,27 +138,37 @@ class ConverterFrame(tk.Frame):
         self.first_unit_selector["values"] = list(self.units.keys())
         self.second_unit_selector["values"] = list(self.units.keys())
 
+    def clear(self):
+        self.units = {}
+        self.first_unit_selector.set("")
+        self.second_unit_selector.set("")
+        self.first_entry.delete(0, tk.END)
+        self.second_entry.delete(0, tk.END)
+
     def convert(self):
-        pass
-        # Здесь будет основная логика конвертации одной единицы измерения в другую.
-        # Все единицы измерения для выбранной физической величины храняться в словаре self.units,
-        # где ключ - название единицы измерения, а значение - объект класса Unit.
-        #
-        # Принцип конвертации:
-        # Берем из словаря self.units выбранные пользователем физические величины и кладем их в отдельные переменные.
-        # Далее берем из self.first_entry значение, которое нужно преобразовать во вторую величину.
-        #
-        # Далее исходную величину переводим в базовую. Тут возможно 2 исхода:
-        #     1. Операция преобразования - умножение. Тогда исходную величину умножаем на conversion_factor;
-        #     2. Операция преобразования - сложение. Тогда к исходной величине прибавляем conversion_factor.
-        # Предположим, что получение значение это a1.
-        #
-        # Далее нужно преобразовать базовую величину в ту, которую выбрал пользователель во втором combobox'e.
-        # Смотрим на операцию преобразования 2ой единицы измерения.
-        #     1. Если это *, то a1 делим на conversion_factor;
-        #     2. Если это +, то из а1 вычитаем conversion_factor.
-        # Получаем переменную a2, которая уже и есть преобразованное значение.
-        #
-        # На последнем этапе нужно просто записать переменную a2 во self.second_entry.
-        # Как это делается можешь почитать тут
-        # https://stackoverflow.com/questions/16373887/how-to-set-the-text-value-content-of-an-entry-widget-using-a-button-in-tkinter
+        gotten_value_str = self.first_entry.get()
+        first_unit_str = self.selected_unit_one.get()
+        second_unit_str = self.selected_unit_two.get()
+
+        if gotten_value_str == '' or first_unit_str == '' or second_unit_str == '':
+            showerror("Некорректные данные", "Заполните все поля для конвертации")
+            return
+
+        gotten_value = float(gotten_value_str)
+        gotten_first_unit = self.units[first_unit_str]
+        gotten_second_unit = self.units[second_unit_str]
+
+        if gotten_first_unit.conversion_operation == "*":
+            first_step_value = gotten_value * gotten_first_unit.conversion_factor
+        elif gotten_first_unit.conversion_operation == "+":
+            first_step_value = gotten_value + gotten_first_unit.conversion_factor
+
+        if gotten_second_unit.conversion_operation == "*":
+            second_step_value = first_step_value / gotten_second_unit.conversion_factor
+        elif gotten_second_unit.conversion_operation == "+":
+            second_step_value = first_step_value - gotten_second_unit.conversion_factor
+
+        self.second_entry.configure(state="normal")
+        self.second_entry.delete(0, tk.END)
+        self.second_entry.insert(0, second_step_value)
+        self.second_entry.configure(state="readonly")

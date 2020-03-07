@@ -1,9 +1,9 @@
-import json
 import tkinter as tk
 
+from frames.add_quantity_frame import AddQuantityFrame
 from frames.converter_frame import ConverterFrame
 from frames.main_frame import MainFrame
-from model.quantity import *
+from util import get_all_quantities
 
 
 class Application(tk.Tk):
@@ -24,7 +24,7 @@ class Application(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        for F in (ConverterFrame, MainFrame):
+        for F in (ConverterFrame, AddQuantityFrame, MainFrame):
             page_name = F.__name__
             frame = F(container, self)
             self.frames[page_name] = frame
@@ -33,6 +33,7 @@ class Application(tk.Tk):
         self.show_frame(MainFrame.__name__)
 
     def show_frame(self, page_name):
+        self.__load_data()
         frame = self.frames[page_name]
         frame.render()
         frame.tkraise()
@@ -46,10 +47,7 @@ class Application(tk.Tk):
         self.resizable(False, False)
 
     def __load_data(self):
-        with open('../resources/quantities.json') as json_file:
-            json_data = json.load(json_file)
-            self.phys_quantities = {}
-
-            for quantities_json in json_data:
-                physical_quantity = PhysicalQuantity.decode_from_json(quantities_json)
-                self.phys_quantities[physical_quantity.name] = physical_quantity.units
+        self.phys_quantities = {}
+        all_quantities = get_all_quantities()
+        for quantity in all_quantities:
+            self.phys_quantities[quantity.name] = quantity.units

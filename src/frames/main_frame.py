@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.messagebox import showwarning
 
-from frames.frames import CONVERTER_FRAME_NAME
+from constants.frames import CONVERTER_FRAME_NAME, ADD_QUANTITY_FRAME_NAME
 
 
 class MainFrame(tk.Frame):
@@ -25,6 +25,10 @@ class MainFrame(tk.Frame):
         self.select_quantity_button = tk.Button(self, text="Выбор", width=20, height=3, command=self.__select_quantity)
         self.select_quantity_button.pack(pady=40)
 
+        self.select_quantity_button = tk.Button(self, text="Добавить величину", width=20, height=3,
+                                                command=self.__select_add_new_quantity)
+        self.select_quantity_button.pack()
+
     def __select_quantity(self):
         if self.controller.selected_quantity.get() == "":
             showwarning("Выберите величину", "Выберите физическую величину")
@@ -32,5 +36,8 @@ class MainFrame(tk.Frame):
 
         self.controller.show_frame(CONVERTER_FRAME_NAME)
 
+    def __select_add_new_quantity(self):
+        self.controller.show_frame(ADD_QUANTITY_FRAME_NAME)
+
     def render(self):
-        pass
+        self.quantity_selector['values'] = list(self.controller.phys_quantities.keys())

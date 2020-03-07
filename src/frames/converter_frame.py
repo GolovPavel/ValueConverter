@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter.messagebox import showerror
-from frames.frames import MAIN_FRAME_NAME
+from constants.frames import MAIN_FRAME_NAME
 
 
 class ConverterFrame(tk.Frame):

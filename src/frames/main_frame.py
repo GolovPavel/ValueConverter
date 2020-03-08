@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter.messagebox import showwarning
+from tkinter.messagebox import showwarning, showinfo
 
-from constants.frames import CONVERTER_FRAME_NAME, ADD_QUANTITY_FRAME_NAME
+from constants.frames import *
+import util
 
 
 class MainFrame(tk.Frame):
@@ -25,9 +26,13 @@ class MainFrame(tk.Frame):
         self.select_quantity_button = tk.Button(self, text="Выбор", width=20, height=3, command=self.__select_quantity)
         self.select_quantity_button.pack(pady=40)
 
-        self.select_quantity_button = tk.Button(self, text="Добавить величину", width=20, height=3,
-                                                command=self.__select_add_new_quantity)
-        self.select_quantity_button.pack()
+        self.add_new_quantity_button = tk.Button(self, text="Добавить величину", width=20, height=3,
+                                                 command=self.__select_add_new_quantity)
+        self.add_new_quantity_button.pack()
+
+        self.clear_quantities_button = tk.Button(self, text="Сброс величин", width=20, height=3,
+                                                 command=self.__clear_quantities)
+        self.clear_quantities_button.pack(pady=40)
 
     def __select_quantity(self):
         if self.controller.selected_quantity.get() == "":
@@ -38,6 +43,11 @@ class MainFrame(tk.Frame):
 
     def __select_add_new_quantity(self):
         self.controller.show_frame(ADD_QUANTITY_FRAME_NAME)
+
+    def __clear_quantities(self):
+        util.clear_quantities()
+        showinfo("Величины сброшены", "Список физических величин сброшен до первоначальных")
+        self.controller.show_frame(MAIN_FRAME_NAME)
 
     def render(self):
         self.quantity_selector['values'] = list(self.controller.phys_quantities.keys())

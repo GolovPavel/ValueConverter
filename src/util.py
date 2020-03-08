@@ -1,7 +1,7 @@
 import json
 from tkinter.messagebox import showwarning
 
-from constants.files import QUANTITIES_FILE_PATH
+from constants.files import *
 from model.quantity import PhysicalQuantity
 
 
@@ -42,3 +42,11 @@ def get_all_quantities():
             physical_quantities.append(physical_quantity)
 
     return physical_quantities
+
+
+def clear_quantities():
+    with open(DEFAULT_QUANTITIES_FILE_PATH, 'r') as json_file:
+        data = json_file.read()
+
+    with open(QUANTITIES_FILE_PATH, 'w') as json_file:
+        json_file.write(data)

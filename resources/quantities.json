@@ -4,20 +4,20 @@
     "units": [
       {
         "name": "Килограммы",
-        "is_base_unit": true,
-        "conversion_factor": 1.0,
+        "is_base_unit": "True",
+        "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Граммы",
-        "is_base_unit": true,
-        "conversion_factor": 0.001,
+        "is_base_unit": "False",
+        "conversion_factor": 1e-3,
         "conversion_operation": "*"
       },
       {
         "name": "Тонны",
-        "is_base_unit": true,
-        "conversion_factor": 1000.0,
+        "is_base_unit": "False",
+        "conversion_factor": 1e3,
         "conversion_operation": "*"
       }
     ]
@@ -27,32 +27,32 @@
     "units": [
       {
         "name": "Метры",
-        "is_base_unit": true,
-        "conversion_factor": 1.0,
+        "is_base_unit": "True",
+        "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Километры",
-        "is_base_unit": true,
-        "conversion_factor": 1000.0,
+        "is_base_unit": "False",
+        "conversion_factor": 1e3,
         "conversion_operation": "*"
       },
       {
         "name": "Миллиметры",
-        "is_base_unit": true,
-        "conversion_factor": 0.001,
+        "is_base_unit": "False",
+        "conversion_factor": 1e-3,
         "conversion_operation": "*"
       },
       {
         "name": "Сантиметры",
-        "is_base_unit": true,
-        "conversion_factor": 0.01,
+        "is_base_unit": "False",
+        "conversion_factor": 1e-2,
         "conversion_operation": "*"
       },
       {
         "name": "Дециметры",
-        "is_base_unit": true,
-        "conversion_factor": 0.1,
+        "is_base_unit": "False",
+        "conversion_factor": 1e-1,
         "conversion_operation": "*"
       }
     ]
@@ -62,20 +62,20 @@
     "units": [
       {
         "name": "Секунды",
-        "is_base_unit": true,
-        "conversion_factor": 1.0,
+        "is_base_unit": "True",
+        "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Минуты",
-        "is_base_unit": true,
-        "conversion_factor": 60.0,
+        "is_base_unit": "False",
+        "conversion_factor": 6e1,
         "conversion_operation": "*"
       },
       {
         "name": "Часы",
-        "is_base_unit": true,
-        "conversion_factor": 3600.0,
+        "is_base_unit": "False",
+        "conversion_factor": 36e2,
         "conversion_operation": "*"
       }
     ]
@@ -85,20 +85,20 @@
     "units": [
       {
         "name": "Амперы",
-        "is_base_unit": true,
-        "conversion_factor": 1.0,
+        "is_base_unit": "True",
+        "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Килоамперы",
-        "is_base_unit": true,
-        "conversion_factor": 1000.0,
+        "is_base_unit": "False",
+        "conversion_factor": 1e3,
         "conversion_operation": "*"
       },
       {
         "name": "Миллиамперы",
-        "is_base_unit": true,
-        "conversion_factor": 0.001,
+        "is_base_unit": "False",
+        "conversion_factor": 1e-3,
         "conversion_operation": "*"
       }
     ]
@@ -108,88 +108,16 @@
     "units": [
       {
         "name": "Кельвины",
-        "is_base_unit": true,
-        "conversion_factor": 1.0,
+        "is_base_unit": "True",
+        "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Градусы",
-        "is_base_unit": true,
-        "conversion_factor": 273.0,
+        "is_base_unit": "False",
+        "conversion_factor": 273,
         "conversion_operation": "+"
       }
     ]
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "fsdfsdf",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "123",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "DFGDFG",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "213123123",
-    "units": []
-  },
-  {
-    "name": "213123123§121§2§12§12",
-    "units": []
-  },
-  {
-    "name": "фывфывфыв",
-    "units": []
-  },
-  {
-    "name": "3213123123",
-    "units": []
-  },
-  {
-    "name": "§12§12§12§2§12",
-    "units": []
   }
 ]

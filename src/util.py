@@ -34,7 +34,7 @@ def save_quantity(quantities_list):
 def get_all_quantities():
     physical_quantities = []
 
-    with open(QUANTITIES_FILE_PATH) as json_file:
+    with open(QUANTITIES_FILE_PATH, encoding="utf-8") as json_file:
         json_data = json.load(json_file)
 
         for quantities_json in json_data:

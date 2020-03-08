@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, LEFT
 from tkinter.messagebox import showwarning, showinfo
 
 from constants.frames import *
@@ -30,9 +30,13 @@ class MainFrame(tk.Frame):
                                                  command=self.__select_add_new_quantity)
         self.add_new_quantity_button.pack()
 
+        self.add_new_unit_button = tk.Button(self, text="Добавить единицу", width=20, height=3,
+                                             command=self.__select_add_new_unit)
+        self.add_new_unit_button.pack()
+
         self.clear_quantities_button = tk.Button(self, text="Сброс величин", width=20, height=3,
                                                  command=self.__clear_quantities)
-        self.clear_quantities_button.pack(pady=40)
+        self.clear_quantities_button.pack()
 
     def __select_quantity(self):
         if self.controller.selected_quantity.get() == "":
@@ -43,6 +47,9 @@ class MainFrame(tk.Frame):
 
     def __select_add_new_quantity(self):
         self.controller.show_frame(ADD_QUANTITY_FRAME_NAME)
+
+    def __select_add_new_unit(self):
+        self.controller.show_frame(ADD_UNIT_FRAME_NAME)
 
     def __clear_quantities(self):
         util.set_default_quantities()

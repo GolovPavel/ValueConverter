@@ -3,6 +3,7 @@ import os
 import util
 
 from frames.add_quantity_frame import AddQuantityFrame
+from frames.add_unit_frame import AddUnitFrame
 from frames.converter_frame import ConverterFrame
 from frames.main_frame import MainFrame
 from util import get_all_quantities
@@ -28,7 +29,7 @@ class Application(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        for F in (ConverterFrame, AddQuantityFrame, MainFrame):
+        for F in (ConverterFrame, AddQuantityFrame, AddUnitFrame, MainFrame):
             page_name = F.__name__
             frame = F(container, self)
             self.frames[page_name] = frame

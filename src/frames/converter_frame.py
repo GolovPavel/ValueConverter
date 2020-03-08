@@ -46,7 +46,7 @@ class ConverterFrame(tk.Frame):
         self.back_button.grid(row=4, column=1)
 
     def render(self):
-        self.clear()
+        self.__clear()
 
         selected_unit = self.controller.selected_quantity.get()
         self.main_label["text"] = "Выбрана величина: {}".format(selected_unit)
@@ -57,7 +57,7 @@ class ConverterFrame(tk.Frame):
         self.first_unit_selector["values"] = list(self.units.keys())
         self.second_unit_selector["values"] = list(self.units.keys())
 
-    def clear(self):
+    def __clear(self):
         self.units = {}
         self.first_unit_selector.set("")
         self.second_unit_selector.set("")

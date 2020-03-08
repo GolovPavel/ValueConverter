@@ -4,19 +4,16 @@
     "units": [
       {
         "name": "Килограммы",
-        "is_base_unit": "True",
         "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Граммы",
-        "is_base_unit": "False",
         "conversion_factor": 1e-3,
         "conversion_operation": "*"
       },
       {
         "name": "Тонны",
-        "is_base_unit": "False",
         "conversion_factor": 1e3,
         "conversion_operation": "*"
       }
@@ -27,31 +24,26 @@
     "units": [
       {
         "name": "Метры",
-        "is_base_unit": "True",
         "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Километры",
-        "is_base_unit": "False",
         "conversion_factor": 1e3,
         "conversion_operation": "*"
       },
       {
         "name": "Миллиметры",
-        "is_base_unit": "False",
         "conversion_factor": 1e-3,
         "conversion_operation": "*"
       },
       {
         "name": "Сантиметры",
-        "is_base_unit": "False",
         "conversion_factor": 1e-2,
         "conversion_operation": "*"
       },
       {
         "name": "Дециметры",
-        "is_base_unit": "False",
         "conversion_factor": 1e-1,
         "conversion_operation": "*"
       }
@@ -62,19 +54,16 @@
     "units": [
       {
         "name": "Секунды",
-        "is_base_unit": "True",
         "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Минуты",
-        "is_base_unit": "False",
         "conversion_factor": 6e1,
         "conversion_operation": "*"
       },
       {
         "name": "Часы",
-        "is_base_unit": "False",
         "conversion_factor": 36e2,
         "conversion_operation": "*"
       }
@@ -85,19 +74,16 @@
     "units": [
       {
         "name": "Амперы",
-        "is_base_unit": "True",
         "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Килоамперы",
-        "is_base_unit": "False",
         "conversion_factor": 1e3,
         "conversion_operation": "*"
       },
       {
         "name": "Миллиамперы",
-        "is_base_unit": "False",
         "conversion_factor": 1e-3,
         "conversion_operation": "*"
       }
@@ -108,13 +94,11 @@
     "units": [
       {
         "name": "Кельвины",
-        "is_base_unit": "True",
         "conversion_factor": 1,
         "conversion_operation": "*"
       },
       {
         "name": "Градусы",
-        "is_base_unit": "False",
         "conversion_factor": 273,
         "conversion_operation": "+"
       }

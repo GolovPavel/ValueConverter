@@ -62,7 +62,9 @@ class ConverterFrame(tk.Frame):
         self.first_unit_selector.set("")
         self.second_unit_selector.set("")
         self.first_entry.delete(0, tk.END)
+        self.second_entry.configure(state="normal")
         self.second_entry.delete(0, tk.END)
+        self.second_entry.configure(state="readonly")
 
     def convert(self):
         gotten_value_str = self.first_entry.get()

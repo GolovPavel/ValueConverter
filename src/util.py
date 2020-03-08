@@ -44,7 +44,7 @@ def get_all_quantities():
     return physical_quantities
 
 
-def clear_quantities():
+def set_default_quantities():
     with open(DEFAULT_QUANTITIES_FILE_PATH, 'r') as json_file:
         data = json_file.read()
 

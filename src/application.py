@@ -1,9 +1,12 @@
 import tkinter as tk
+import os
+import util
 
 from frames.add_quantity_frame import AddQuantityFrame
 from frames.converter_frame import ConverterFrame
 from frames.main_frame import MainFrame
 from util import get_all_quantities
+from constants.files import *
 
 
 class Application(tk.Tk):
@@ -14,6 +17,7 @@ class Application(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 
         self.__init_base_params()
+        self.__create_db()
         self.__load_data()
 
         self.selected_quantity = tk.StringVar()
@@ -45,6 +49,12 @@ class Application(tk.Tk):
         self.geometry("{}x{}".format(self.WINDOW_WIDTH, self.WINDOW_HEIGHT))
         self.geometry("+{}+{}".format(position_right, position_down))
         self.resizable(False, False)
+
+    def __create_db(self):
+        if os.path.isfile(QUANTITIES_FILE_PATH):
+            return
+
+        util.set_default_quantities()
 
     def __load_data(self):
         self.phys_quantities = {}

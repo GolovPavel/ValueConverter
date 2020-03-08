@@ -45,7 +45,7 @@ class MainFrame(tk.Frame):
         self.controller.show_frame(ADD_QUANTITY_FRAME_NAME)
 
     def __clear_quantities(self):
-        util.clear_quantities()
+        util.set_default_quantities()
         showinfo("Величины сброшены", "Список физических величин сброшен до первоначальных")
         self.controller.show_frame(MAIN_FRAME_NAME)
 

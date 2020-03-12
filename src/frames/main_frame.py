@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, LEFT
+from tkinter import ttk
 from tkinter.messagebox import showwarning, showinfo
 
 from constants.frames import *
@@ -55,6 +55,7 @@ class MainFrame(tk.Frame):
         util.set_default_quantities()
         showinfo("Величины сброшены", "Список физических величин сброшен до первоначальных")
         self.controller.show_frame(MAIN_FRAME_NAME)
+        self.quantity_selector.set('')
 
     def render(self):
         self.quantity_selector['values'] = list(self.controller.phys_quantities.keys())

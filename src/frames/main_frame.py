@@ -16,7 +16,7 @@ class MainFrame(tk.Frame):
         self.main_label.pack(pady=40)
 
         self.chose_label = tk.Label(self, text="Выберите физическую величину", font="Helvetica 20")
-        self.chose_label.pack(pady=50)
+        self.chose_label.pack(pady=30)
 
         self.quantity_selector = ttk.Combobox(self, values=list(controller.phys_quantities.keys()), justify='center',
                                               textvariable=controller.selected_quantity)

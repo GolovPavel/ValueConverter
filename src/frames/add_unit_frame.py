@@ -13,10 +13,10 @@ class AddUnitFrame(tk.Frame):
         tk.Frame.__init__(self, root)
         self.controller = controller
 
-        self.main_label = tk.Label(self, text="Добавление новой единицы измерения", font="Helvetica 30 bold")
-        self.main_label.pack(pady=50)
+        self.main_label = tk.Label(self, text="Добавление новой единицы измерения", font="Helvetica 25 bold")
+        self.main_label.pack(pady=35)
 
-        self.name_label = tk.Label(self, text="Название величины", font="Helvetica 15")
+        self.name_label = tk.Label(self, text="Название величины", font="Helvetica 17")
         self.name_label.pack(pady=5)
 
         self.quantity_selector = ttk.Combobox(self, values=list(self.controller.phys_quantities.keys()),
@@ -24,19 +24,19 @@ class AddUnitFrame(tk.Frame):
         self.quantity_selector['state'] = 'readonly'
         self.quantity_selector.pack()
 
-        self.name_label = tk.Label(self, text="Название единицы измерения", font="Helvetica 15")
+        self.name_label = tk.Label(self, text="Название единицы измерения", font="Helvetica 17")
         self.name_label.pack(pady=5)
 
         self.unit_name_entry = tk.Entry(self, width=24)
         self.unit_name_entry.pack()
 
-        self.factor_label = tk.Label(self, text="Фактор преобразования", font="Helvetica 15")
+        self.factor_label = tk.Label(self, text="Фактор преобразования", font="Helvetica 17")
         self.factor_label.pack(pady=5)
 
         self.factor_entry = tk.Entry(self, width=24)
         self.factor_entry.pack()
 
-        self.factor_label = tk.Label(self, text="Операция преобразования", font="Helvetica 15")
+        self.factor_label = tk.Label(self, text="Операция преобразования", font="Helvetica 17")
         self.factor_label.pack(pady=5)
 
         self.conversion_operation_selector = ttk.Combobox(self, values=["*", "+"], justify='center')

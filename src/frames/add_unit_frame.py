@@ -71,6 +71,7 @@ class AddUnitFrame(tk.Frame):
 
     def render(self):
         self.__clear()
+        self.quantity_selector['values'] = list(self.controller.phys_quantities.keys())
 
     def __clear(self):
         self.quantity_selector.set("")

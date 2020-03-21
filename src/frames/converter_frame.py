@@ -75,7 +75,12 @@ class ConverterFrame(tk.Frame):
             showerror("Некорректные данные", "Заполните все поля для конвертации")
             return
 
-        gotten_value = float(gotten_value_str)
+        try:
+            gotten_value = float(gotten_value_str)
+        except ValueError:
+            showerror("Введите корректные данные", "Введите числовое значение")
+            return
+
         gotten_first_unit = self.units[first_unit_str]
         gotten_second_unit = self.units[second_unit_str]
 

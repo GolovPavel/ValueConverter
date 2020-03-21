@@ -33,6 +33,10 @@ class AddQuantityFrame(tk.Frame):
             showerror("Название величины", "Введите название величины")
             return
 
+        if len(quantity_name) > 30:
+            showerror("Длинное название", "Название величины может содержать не более 30 символов")
+            return
+
         add_new_quantity(quantity_name)
         self.controller.show_frame(MAIN_FRAME_NAME)
 

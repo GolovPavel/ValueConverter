@@ -130,6 +130,9 @@ dmypy.json
 
 #IDE
 .idea
+.pycharm
+.vscode
+.DS_Store
 
 #Custom
 quantities.json
